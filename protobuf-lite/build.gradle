@@ -36,11 +36,12 @@ compileTestJava {
 
 protobuf {
     protoc {
-        if (project.hasProperty('protoc')) {
-            path = project.protoc
-        } else {
-            artifact = "com.google.protobuf:protoc:${protocVersion}"
-        }
+        path = "/usr/bin/protoc"
+        //if (project.hasProperty('protoc')) {
+        //    path = project.protoc
+        //} else {
+        //    artifact = "com.google.protobuf:protoc:${protocVersion}"
+        //}
     }
     generateProtoTasks {
         ofSourceSet('test')*.each { task ->
