@@ -20,10 +20,10 @@ subprojects {
     version = "1.26.0" // CURRENT_GRPC_VERSION
 
     repositories {
+        mavenLocal()
         maven { // The google mirror is less flaky than mavenCentral()
             url "https://maven-central.storage-download.googleapis.com/repos/central/data/" }
         mavenCentral()
-        mavenLocal()
     }
 
     tasks.withType(JavaCompile) {
@@ -138,14 +138,14 @@ subprojects {
             lang: "org.apache.commons:commons-lang3:3.5",
 
             netty: "io.netty:netty-codec-http2:[${nettyVersion}]",
-            netty_epoll: "io.netty:netty-transport-native-epoll:${nettyVersion}:linux-x86_64",
+            netty_epoll: "io.netty:netty-transport-native-epoll:${nettyVersion}:linux-loongarch_64",
             netty_proxy_handler: "io.netty:netty-handler-proxy:${nettyVersion}",
 
             // Keep the following references of tcnative version in sync whenever it's updated
             // SECURITY.md (multiple occurrences)
             // examples/example-tls/build.gradle
             // examples/example-tls/pom.xml
-            netty_tcnative: 'io.netty:netty-tcnative-boringssl-static:2.0.26.Final',
+            netty_tcnative: 'io.netty:netty-tcnative-boringssl-static:2.0.26.Final:linux-loongarch_64',
 
             conscrypt: 'org.conscrypt:conscrypt-openjdk-uber:2.2.1',
             re2j: 'com.google.re2j:re2j:1.2',
